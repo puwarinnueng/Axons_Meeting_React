@@ -36,13 +36,13 @@ const ToggleButton = styled(MuiToggleButton)(({ selectedColor }) => ({
         backgroundColor: selectedColor,
     },
 }));
-const theme = createTheme({
-    palette: {
-        text: {
-            primary: "#00ff00",
-        },
-    },
-});
+// const theme = createTheme({
+//     palette: {
+//         text: {
+//             primary: "#00ff00",
+//         },
+//     },
+// });
 
 
 export default function Project() {
