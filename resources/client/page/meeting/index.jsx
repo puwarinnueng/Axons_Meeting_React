@@ -1,34 +1,19 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import StarIcon from "@mui/icons-material/Star";
-import HdIcon from "@mui/icons-material/Hd";
-import FilterNoneIcon from "@mui/icons-material/FilterNone";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
-import ImportExportRoundedIcon from "@mui/icons-material/ImportExportRounded";
 import GridTable from "../../components/table/datagrid/GridTable";
 import Layout from "../../components/layouts/index";
-import { NavLink, useLocation } from "react-router-dom";
 import MainContainer from "../../components/container/MainContainer";
 import axios from "axios";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import MuiToggleButton from "@mui/material/ToggleButton";
 import Button from "@mui/material/Button";
-import Tabs from "@mui/material/Tabs";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import BasicTable from '../../components/table/basictable/BasicTable'
 import BaseTable from '../../components/table/basetable/index'
-import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -62,12 +47,11 @@ const theme = createTheme({
 export default function Project() {
     //get data
     const [getalldata, SetGetalldata] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
-    // console.log("getalldata", getalldata);
+    const [isLoaded, setIsLoaded] = useState(true);
     useEffect(
         () => {
             (async () => {
-                setIsLoaded(false);
+                // setIsLoaded(false);
                 try {
                     await axios
                         .get(`http://localhost:3333/api/mission/getall`, {
@@ -124,18 +108,6 @@ export default function Project() {
             time: "true",
             location: "true",
         },
-        // {
-        //     id: 2,
-        //     name: "nueng",
-        //     age: "23",
-        //     college: "nueng"
-        // },
-        // {
-        //     id: 3,
-        //     name: "nuessssng",
-        //     age: "23",
-        //     college: "nueng"
-        // },
     ];
 
     //tabs
@@ -172,10 +144,10 @@ export default function Project() {
     };
 
     //export xlsx
-    const wscols = [
-        { wch: Math.max(...data.map(data => data.title.length)) },
-        { wch: Math.max(...data.map(data => data.id.length)) },
-    ];
+    // const wscols = [
+    //     { wch: Math.max(...data.map(data => data.title.length)) },
+    //     { wch: Math.max(...data.map(data => data.id.length)) },
+    // ];
     function JsonExportMenuItem(props) {
         return (
             <MenuItem
@@ -183,7 +155,7 @@ export default function Project() {
                 <ReportXLSX
                     csvData={data}
                     fileName="Customers_Infomation_xlsx"
-                    wscols={wscols}
+                    // wscols={wscols}
                 />
             </MenuItem>
         );

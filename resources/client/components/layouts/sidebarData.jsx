@@ -9,10 +9,17 @@ import React from 'react'
 export const sidebar_other = [
   {
     icon: <CalendarMonthIcon />,
-    id: 0,
+    id: 1,
     name: "Meeting",
     path: "/",
     pathactive: 'meeting'
+  },
+    {
+    icon: <WorkIcon />,
+    id: 2,
+    name: "Tasks",
+    path: "/tasks",
+    pathactive: 'tasks'
   },
   // {
   //   icon: <DashboardIcon />,
