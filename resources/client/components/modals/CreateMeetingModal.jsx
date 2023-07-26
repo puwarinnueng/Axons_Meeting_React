@@ -1,37 +1,17 @@
 
 import Box from '@mui/material/Box';
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import WorkIcon from '@mui/icons-material/Work';
-import Tooltip from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import { mocData } from '../testdata/dataAutocomplete'
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import Modal from '@mui/material/Modal';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import Switch from '@mui/material/Switch';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import EditIcon from '@mui/icons-material/Edit';
-// import DatePicker from '../datepicker/Datepicker';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import React, { useState } from 'react';
 import axios from 'axios';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -62,7 +42,6 @@ export default function BasicSpeedDial(prop) {
     // const handleImageUpload = (event) => {
     //     const file = event.target.files[0];
     //     setSelectedImage(URL.createObjectURL(file));
-    //     // ทำอย่างอื่นที่คุณต้องการเพื่อเก็บข้อมูลเกี่ยวกับไฟล์ภาพ เช่น เก็บ URL หรือข้อมูลอื่น ๆ ในสถานะของคุณ
     // };
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -99,10 +78,13 @@ export default function BasicSpeedDial(prop) {
         <div>
             {/* <Tooltip title="Create New Project"> */}
             <Box >
-                <div onClick={handleClickOpen}>
-                    <AddCircleIcon />&nbsp;
-                    Add
-                </div>
+                <Button
+                    onClick={handleClickOpen}
+                    variant="contained"
+                    color="success"
+                >
+                   <AddIcon/>Add Meeting
+                </Button>
                 <div>
                     <Dialog
                         // fullWidth={fullWidth}
@@ -134,30 +116,30 @@ export default function BasicSpeedDial(prop) {
                             <CloseIcon />
                         </IconButton>
                         <DialogContent>
-                            <div className="">
+                            <div class="">
                                 {/* 1 */}
-                                <div className="row">
-                                    <div className="col-sm-2 d-flex align-items-center">
-                                        Title 
+                                <div class="row">
+                                    <div class="col-sm-2 d-flex align-items-center">
+                                        Title
                                         {/* {prop.params} */}
                                     </div>
-                                    <div className="col-sm-8">
+                                    <div class="col-sm-8">
                                         <TextField value={prop.params} fullWidth id="outlined-basic" label="Title" variant="outlined" />
                                     </div>
                                 </div>
                                 <br></br>
                                 {/* 2 */}
-                                <div className="row">
-                                    <div className="col-sm-2 d-flex align-items-center">
+                                <div class="row">
+                                    <div class="col-sm-2 d-flex align-items-center">
                                         Start Date
                                     </div>
-                                    <div className="col-sm-4">
+                                    <div class="col-sm-4">
                                         {/* <DatePicker /> */}
                                     </div>
-                                    <div className="col-sm-2 d-flex align-items-center">
+                                    <div class="col-sm-2 d-flex align-items-center">
                                         End Date
                                     </div>
-                                    <div className="col-sm-4">
+                                    <div class="col-sm-4">
                                         {/* <DatePicker /> */}
 
                                     </div>
@@ -165,11 +147,11 @@ export default function BasicSpeedDial(prop) {
 
                                 <br></br>
                                 {/* 3 */}
-                                <div className="row">
-                                    <div className="col-sm-2 d-flex align-items-center">
+                                <div class="row">
+                                    <div class="col-sm-2 d-flex align-items-center">
                                         Details
                                     </div>
-                                    <div className="col">
+                                    <div class="col">
                                         <TextField
                                             fullWidth
                                             id="outlined-multiline-static"
@@ -183,13 +165,13 @@ export default function BasicSpeedDial(prop) {
                                 <br></br>
 
                                 {/* 4 */}
-                                <div className="row">
-                                    <div className="col-sm-2 d-flex align-items-center">
+                                <div class="row">
+                                    <div class="col-sm-2 d-flex align-items-center">
                                         Image Icon
                                     </div>
-                                    <div className="col">
+                                    <div class="col">
                                         <div>
-                                            <input type="file" name="file" id="my-file" accept="image/*" onChange={handleImageUpload} 
+                                            <input type="file" name="file" id="my-file" accept="image/*" onChange={handleImageUpload}
                                             // style={{display: 'none'}}
                                             />
                                             {/* <label for="my-file">

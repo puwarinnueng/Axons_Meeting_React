@@ -16,7 +16,10 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import TableHead from '@mui/material/TableHead';
-import TextField from '@mui/material/TextField';
+import { NavLink, Link } from "react-router-dom";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 function TablePaginationActions(props) {
@@ -72,7 +75,6 @@ function TablePaginationActions(props) {
         </Box>
     );
 }
-
 TablePaginationActions.propTypes = {
     count: PropTypes.number.isRequired,
     onPageChange: PropTypes.func.isRequired,
@@ -84,6 +86,11 @@ export default function CustomPaginationActionsTable(props) {
     const {
         rows,
         colums,
+        manageBtn,
+        editBtn,
+        deleteBtn,
+        toggleState,
+        path
     } = props;
     const [page, setPage] = useState(0);
     const [dense, setDense] = useState(false);
@@ -110,43 +117,27 @@ export default function CustomPaginationActionsTable(props) {
                         <TableRow >
                             {colums.map((v, index) => {
                                 return (
-                                    <TableCell key={index} align='center' sx={{fontWeight: 600
+                                    <TableCell key={index} align='center' sx={{
+                                        fontWeight: 600
                                     }}>
                                         {v.title}
                                     </TableCell>
                                 )
                             })}
+                            {manageBtn && (
+                                <TableCell key={1000} align='center' sx={{
+                                    fontWeight: 600
+                                }}>
+                                    action
+                                </TableCell>
+                            )}
                         </TableRow>
                     </TableHead>
-                    {/* <TableBody>
-                        {(rowsPerPage > 0
-                            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : rows
-                        ).map((rows) => (
-                            <TableRow 
-                            onClick={() => alert("nueng"+ rows.id)}   
-                            key={rows.name} hover >
-                                <TableCell align="center">{rows.title}</TableCell>
-                                <TableCell align="center">{rows.id}</TableCell>
-                                <TableCell align="center">{rows.status}</TableCell>
-                                <TableCell align="center">{rows.college}</TableCell>
-                                <TableCell align="center">{rows.task}</TableCell>
-                                <TableCell align="center">{rows.date}</TableCell>
-                                <TableCell align="center">{rows.time}</TableCell>
-                                <TableCell align="center">{rows.location}</TableCell>
-                            </TableRow>
-                        ))}
-                        {emptyRows > 0 && (
-                            <TableRow style={{ height: 53 * emptyRows }}>
-                                <TableCell colSpan={6} />
-                            </TableRow>
-                        )}
-                    </TableBody> */}
                     <TableBody>
                         {rows?.map((r, index) => {
                             return (
                                 <TableRow key={index}
-                                    onClick={() => alert("nueng" + r.id)}
+                                    // onClick={() => alert("nueng" + r.id)}
                                     hover >
                                     {(rowsPerPage > 0 ? colums : colums).map(
                                         (c, index) => {
@@ -192,6 +183,32 @@ export default function CustomPaginationActionsTable(props) {
                                                 );
                                             }
                                         }
+                                    )}
+                                    {manageBtn && (
+                                        <TableCell
+                                            key="manage-btn"
+                                            align='center'
+                                            sx={{ minWidth: "150px" }}
+                                        >
+                                            {editBtn && (
+                                                <Link
+                                                    to={`${path}/login`}
+                                                    className="px-2 navlink"
+                                                >
+                                                    <EditIcon />
+                                                </Link>
+                                            )}
+
+                                            {deleteBtn && (
+                                                <a
+                                                    className='px-2 navlink'
+                                                    style={{ cursor: "pointer" }}
+                                                    onClick={(e) => toggleState(e, r.id)}
+                                                >
+                                                    <DeleteIcon />
+                                                </a>
+                                            )}
+                                        </TableCell>
                                     )}
                                 </TableRow>
                             )

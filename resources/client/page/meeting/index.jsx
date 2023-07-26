@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
 import IconButton from "@mui/material/IconButton";
-import GridTable from "../../components/table/datagrid/GridTable";
 import Layout from "../../components/layouts/index";
 import MainContainer from "../../components/container/MainContainer";
 import axios from "axios";
@@ -26,6 +25,8 @@ import { COLUMN_DATA } from "./columndata";
 import BasicCheckbox from "../../components/checkbox/BasicCheckbox";
 import { FormGroup } from "@mui/material";
 import WifiIcon from '@mui/icons-material/Wifi';
+import DeleteModal from "../../components/modals/DeleteModal";
+import CreateMeetingModal from '../../components/modals/CreateMeetingModal'
 
 
 
@@ -155,13 +156,13 @@ export default function Project() {
                 <ReportXLSX
                     csvData={data}
                     fileName="Customers_Infomation_xlsx"
-                    // wscols={wscols}
+                // wscols={wscols}
                 />
             </MenuItem>
         );
     }
 
-    //popover
+    //popover filter
     const [anchorEl2, setAnchorEl2] = React.useState(null);
     const handleClick2 = (event) => {
         setAnchorEl2(event.currentTarget);
@@ -174,9 +175,6 @@ export default function Project() {
 
     //filter data
     let columnsFilter = COLUMN_DATA
-    // interface ISelectedFilter {
-    //     [k: string]: boolean;
-    // }
     const [selectedFilter, setSelectedFilter] = useState({
         title: true,
         id: true,
@@ -201,9 +199,25 @@ export default function Project() {
             location: true,
         });
     };
+
+    //delete with id
+    const [openDeleteModal, setopenDeleteModal] = useState({ open: false, id: "" });
+    const handleCloseDeleModal = () => {
+        setopenDeleteModal({ open: false, id: "" })
+    }
+    function openDeleteModalwithID(targetId) {
+        setopenDeleteModal({ open: true, id: targetId })
+    }
     return (
         <Layout>
             <MainContainer>
+                <DeleteModal
+                    open={openDeleteModal.open}
+                    getId={openDeleteModal.id}
+                    onClose={handleCloseDeleModal}
+                    redirectTo=""
+                    deleteUrl=""
+                />
                 <TabContext value={value}>
                     <Box sx={{ flexGrow: 1 }}>
                         <AppBar position="static" color="">
@@ -247,14 +261,8 @@ export default function Project() {
                                 </Box>&nbsp;&nbsp;&nbsp;
                                 <Box sx={{ flexGrow: 1 }} />
                                 <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
-
                                 {/* add task */}
-                                <Button
-                                    variant="contained"
-                                    // variant="outlined"
-                                    color="success">
-                                    Add Meeting
-                                </Button>
+                                <CreateMeetingModal />
                                 &nbsp;&nbsp;&nbsp;
 
                                 {/* search */}
@@ -299,7 +307,6 @@ export default function Project() {
                                 >
                                     <MenuItem onClick={handleClose}><JsonExportMenuItem /></MenuItem>
                                     <MenuItem onClick={handleClose}>Import</MenuItem>
-                                    {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
                                 </Menu>
 
                                 {/* filter checkbox */}
@@ -337,7 +344,6 @@ export default function Project() {
                                                     <BasicCheckbox
                                                         label={e.title}
                                                         key={e.key}
-
                                                         checked={!!selectedFilter[e.key]}
                                                         onChange={(value) => handleFilterChange(e.key, value)}
                                                     />
@@ -357,12 +363,21 @@ export default function Project() {
                                 <div>
                                     <BaseTable
                                         rows={filterdata}
-                                        // colums={columnsFilter}
                                         colums={
                                             Object.keys(selectedFilter).length
                                                 ? columnsFilter.filter((col) => selectedFilter[col.key])
                                                 : columnsFilter
                                         }
+                                        manageBtn={
+                                            Object.values(selectedFilter).reduce(
+                                                (old, val) => old + Number(val),
+                                                0
+                                            ) > 0
+                                        }
+                                        editBtn={true}
+                                        deleteBtn
+                                        toggleState={(e, id) => openDeleteModalwithID([id])}
+                                        path=""
                                     />
                                 </div>
                             ) : (
@@ -373,17 +388,7 @@ export default function Project() {
                         </div>
                     </TabPanel>
                     <TabPanel value="2" sx={{ padding: 0 }}>
-                        {/* <div className='card ms-3 me-3 mt-3'> */}
-                        <div className=''>
-                            {isLoaded ? (
-                                <GridTable path="comments" data={filterdata} />
-                                // <BasicTable />
-                            ) : (
-                                <div className="px-4 py-3" style={{ width: "150px" }}>
-                                    loading...
-                                </div>
-                            )}
-                        </div>
+                        asdsa
                     </TabPanel>
                     <TabPanel value="3" sx={{ padding: 0 }}>Item Three</TabPanel>
                 </TabContext>
