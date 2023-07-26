@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g data-name="Icon/Home/32px" transform="translate(-40 -336)">
+        <circle data-name="Ellipse 343" cx="16" cy="16" r="16" transform="translate(40 336)" style="fill:#fff"/>
+        <g data-name="Icons / Home / 18px">
+            <path data-name="Path 244" d="M0 0h18v18H0z" style="fill:none" transform="translate(47 343)"/>
+            <path data-name="Path 245" d="M16.5 15.567a.75.75 0 0 1-.75.75h-12a.75.75 0 0 1-.75-.75V7.684a.75.75 0 0 1 .289-.592l6-4.667a.75.75 0 0 1 .921 0l6 4.667a.75.75 0 0 1 .29.592zM9 10.317v4.5h1.5v-4.5z" transform="translate(46.25 342.433)" style="fill:#376aed"/>
+        </g>
+        <g data-name="Icons / Home / 18px">
+            <path data-name="Path 244" d="M0 0h18v18H0z" style="fill:none" transform="translate(47 343)"/>
+            <path data-name="Path 245" d="M16.5 15.567a.75.75 0 0 1-.75.75h-12a.75.75 0 0 1-.75-.75V7.684a.75.75 0 0 1 .289-.592l6-4.667a.75.75 0 0 1 .921 0l6 4.667a.75.75 0 0 1 .29.592zM9 10.317v4.5h1.5v-4.5z" transform="translate(46.25 342.433)" style="fill:#376aed"/>
+        </g>
+    </g>
+</svg>

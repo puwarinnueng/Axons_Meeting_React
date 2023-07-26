@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g data-name="Icon/Pin/32px" transform="translate(-41 -337)">
+        <circle data-name="Ellipse 344" cx="16" cy="16" r="16" transform="translate(41 337)" style="fill:#fff"/>
+        <g data-name="Icons / Pin / 18px">
+            <path data-name="Path 246" d="M0 0h18v18H0z" style="fill:none" transform="translate(48 344)"/>
+            <path data-name="Path 247" d="M14.533 13.526 9.756 18.3l-4.777-4.774a6.754 6.754 0 1 1 9.554 0zm-4.777-3.274a1.5 1.5 0 1 0-1.5-1.5 1.5 1.5 0 0 0 1.5 1.5z" transform="translate(47.244 342.85)" style="fill:#376aed"/>
+        </g>
+        <g data-name="Icons / Pin / 18px">
+            <path data-name="Path 246" d="M0 0h18v18H0z" style="fill:none" transform="translate(48 344)"/>
+            <path data-name="Path 247" d="M14.533 13.526 9.756 18.3l-4.777-4.774a6.754 6.754 0 1 1 9.554 0zm-4.777-3.274a1.5 1.5 0 1 0-1.5-1.5 1.5 1.5 0 0 0 1.5 1.5z" transform="translate(47.244 342.85)" style="fill:#376aed"/>
+        </g>
+    </g>
+</svg>
