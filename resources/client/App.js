@@ -6,6 +6,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 //pages
+import DashboardPage from './page/dashboard/index'
 import LoginPage from "./page/login/login";
 import LoginPage2 from "./page/login/login2";
 import MeetingPage from "./page/meeting/index";
@@ -19,9 +20,10 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
+          <Route path="/" element={<DashboardPage />} />
             <Route path="/login" element={<LoginPage2 />} />
             <Route path="/loginlocal" element={<LoginPage />} />
-            <Route path="/" element={<MeetingPage />} />
+            <Route path="/meeting" element={<MeetingPage />} />
             <Route path="/tasks" element={<TaskPage />} />
             <Route path="/group" element={<GroupPage />} />
           </Routes>

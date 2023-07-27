@@ -8,10 +8,17 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import React from 'react'
 export const sidebar_other = [
   {
+    icon: <DashboardIcon />,
+    id: 0,
+    name: "Dashboard",
+    path: "/",
+    pathactive: 'dashboard'
+  },
+  {
     icon: <CalendarMonthIcon />,
     id: 1,
     name: "Meeting",
-    path: "/",
+    path: "/meeting",
     pathactive: 'meeting'
   },
     {
