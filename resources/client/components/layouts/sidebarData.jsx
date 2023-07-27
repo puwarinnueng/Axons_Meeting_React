@@ -21,6 +21,13 @@ export const sidebar_other = [
     path: "/tasks",
     pathactive: 'tasks'
   },
+    {
+    icon: <ArticleIcon />,
+    id: 3,
+    name: "Group",
+    path: "/group",
+    pathactive: 'group'
+  },
   // {
   //   icon: <DashboardIcon />,
   //   id: 1,
