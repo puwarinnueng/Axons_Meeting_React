@@ -78,13 +78,23 @@ export default function BasicSpeedDial(prop) {
         <div>
             {/* <Tooltip title="Create New Project"> */}
             <Box >
-                <Button
-                    onClick={handleClickOpen}
-                    variant="contained"
-                    color="success"
-                >
-                   <AddIcon/>Add Meeting
-                </Button>
+                <IconButton aria-label="delete" >
+                    <Button
+                        id="basic-button"
+                        aria-controls={open ? 'basic-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClickOpen}
+                        color="success"
+                        variant="contained"
+                        sx={{
+                            display: 'flex', alignItems: 'center', width: 200,
+                            height: 32
+                        }}
+                        >
+                        <AddIcon/>Add Meeting
+                    </Button>
+                </IconButton>
                 <div>
                     <Dialog
                         // fullWidth={fullWidth}

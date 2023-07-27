@@ -261,6 +261,7 @@ export default function Project() {
                                 </Box>&nbsp;&nbsp;&nbsp;
                                 <Box sx={{ flexGrow: 1 }} />
                                 <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
+
                                 {/* add task */}
                                 <CreateMeetingModal />
                                 &nbsp;&nbsp;&nbsp;
